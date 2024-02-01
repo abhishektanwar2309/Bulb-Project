@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulb Project</title>
+    <style>
+        .bulb-container{
+            margin: 25px;
+            padding: 25px;
+            display: flex;
+            flex-direction: row;
+        }
+        /* .each-bulb{
+            margin: 25px;
+            padding: 25px;
+        } */
+    </style>
+</head>
+<body>
+    <h1>Here is my bulb control.</h1>
+    <button onclick="turnOn()">
+        Turn On
+    </button>
+    <button onclick="turnOff()">
+        Turn Off
+    </button>
+    <button id="onOffButton" onclick="toggleBulb()">
+        ON
+    </button>
+    <!-- using div as if we want to style the bulb image then we can do it  -->
+    <div class="bulb-container">
+        <div class="each-bulb">
+            <img id="Bulb" src="OFFbulb.jpg" alt="">
+        </div>
+        <!-- <div id="onBulb" class="each-bulb">
+            <img src="ONbulb.jpg" alt="">
+        </div> -->
+       
+    </div>
+    <script>
+        // turn on function 
+        const turnOn=() =>{
+            // how to on the bulb 
+            //we need to change the image src of the bulb 
+            let imgOb=document.getElementById("Bulb");
+            let bulbOb=document.getElementById("onOffButton");
+            imgOb.setAttribute("src","ONbulb.jpg");
+            console.log("Bulb is ON.");
+            console.log(imgOb.getAttribute("src"));
+            bulbOb.textContent="OFF";
+        };
+        const turnOff=() =>{
+            let imgOb=document.getElementById("Bulb");
+            let bulbOb=document.getElementById("onOffButton");
+            imgOb.setAttribute("src","OFFbulb.jpg");
+            console.log("Bulb is OFF.");
+            console.log(imgOb.getAttribute("src"));
+            bulbOb.textContent="ON";
+        };
+        const toggleBulb=() => {
+            let bulbOb=document.getElementById("onOffButton");
+            let imgOb=document.getElementById("Bulb");
+            if(bulbOb.textContent==="ON"){
+                imgOb.setAttribute("src","ONbulb.jpg");
+                bulbOb.textContent="OFF";
+            }
+            else{
+                imgOb.setAttribute("src","OFFbulb.jpg");
+                bulbOb.textContent="ON";
+            }
+        }
+    </script>
+</body>
+</html>
